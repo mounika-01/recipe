@@ -1,21 +1,24 @@
-// Write your code here
 package com.example.recipe;
 
 import java.util.List;
 
-public class recipe {
-
+public class Recipe {
     private int recipeId;
     private String recipeName;
-    private String recipeType;
+    private String description;
+    private String recipeType; // Define recipeType if needed
     private List<String> ingredients;
 
-    public recipe(int recipeId, String recipeName, List<String> ingredients) {
+    public Recipe(int recipeId, String recipeName, String description, String recipeType, List<String> ingredients) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
-        this.recipeType = recipeType;
+        this.description = description;
+        this.recipeType = recipeType; // Initialize recipeType if needed
         this.ingredients = ingredients;
     }
+
+    // Getters and setters for recipeId, recipeName, description, recipeType,
+    // ingredients
 
     public int getRecipeId() {
         return recipeId;
@@ -37,16 +40,23 @@ public class recipe {
         return recipeType;
     }
 
-    public void setRecipeDetails(String recipeType) {
+    public void setRecipeType(String recipeType) {
         this.recipeType = recipeType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(String ingredients) {
+    public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
-
 }
