@@ -31,64 +31,64 @@ public class RecipeService implements RecipeRepository {
 
         // Write your code here
         int uniqueRecipeId = 6;
+
         public ArrayList<Recipe> getAllRecipes() {
-                Collection<Recipe> recipeCollection =recipeBook.values();
-                ArrayList<Recipe> allrecipes = new ArrayList(recipeCollection);
+                Collection<Recipe> recipeCollection = recipeBook.values();
+               ArrayList<Recipe> allrecipes = new ArrayList<>(recipeCollection);
                 return allrecipes;
         }
-{}
 
-public Recipe getRecipeById(int recipeld) {
-        Recipe recipe = recipeBook.get(recipeId);
-        if(recipe == null){
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        public Recipe getRecipeById(int recipeId) {
+                Recipe recipe = recipeBook.get(recipeId);
+                if (recipe == null) {
+                        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                }
+                return recipe;
         }
-        return recipe;
-}
-public Recipe addRecipe (Recipe recipe) { 
-        recipe.setRecipeId(uniqueRecipeId); 
-        recipeBook.put(uniqueRecipeId, recipe);
-        
-        uniqueRecipeId += 1;
-        return recipe;
 
-}
+        public Recipe addRecipe(Recipe recipe) {
+                recipe.setRecipeId(uniqueRecipeId);
+                recipeBook.put(uniqueRecipeId, recipe);
 
-public Recipe updateRecipe(int recipeId, Recipe recipe) { 
-        Recipe existingRecipe = recipeBook.get(recipeId);
+                uniqueRecipeId += 1;
+                return recipe;
 
-if (existingRecipe == null) {
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
 
-}
+        public Recipe updateRecipe(int recipeId, Recipe recipe) {
+                Recipe existingRecipe = recipeBook.get(recipeId);
 
-if(recipe.getRecipeName() != null) {
-        existingRecipe.setRecipeName(recipe.getRecipeName());
+                if (existingRecipe == null) {
+                        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
-}
+                }
 
-if (recipe.getRecipeType() != null) { 
-        existingRecipe.setRecipeDetails(recipe.getRecipeType());
+                if (recipe.getRecipeName() != null) {
+                        existingRecipe.setRecipeName(recipe.getRecipeName());
 
-}
+                }
 
-if (recipe.getIngredients() != null) {
-        existingRecipe.setIngredients(recipe.getIngredients());
+                if (recipe.getRecipeType() != null) {
+                        existingRecipe.setRecipeDetails(recipe.getRecipeType());
 
-}
+                }
 
-return existingRecipe;
-}
+                if (recipe.getIngredients() != null) {
+                        existingRecipe.setIngredients(recipe.getIngredients());
 
-public void deleteRecipe(int recipeId) {
-        Recipe recipe = recipeBook.get(recipeId);
+                }
 
-if ( recipe == null) {
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-}
-else {
-        recipeBook.remove(recipeId);
-        throw new ResponseStatusException(HttpStatus.NOT_CONTENT);
-}
-}
+                return existingRecipe;
+        }
+
+        public void deleteRecipe(int recipeId) {
+                Recipe recipe = recipeBook.get(recipeId);
+
+                if (recipe == null) {
+                        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                } else {
+                        recipeBook.remove(recipeId);
+                        throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+                }
+        }
 }
