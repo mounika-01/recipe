@@ -5,15 +5,13 @@ import java.util.List;
 public class Recipe {
     private int recipeId;
     private String recipeName;
-    
     private String recipeType; // Define recipeType if needed
     private List<String> ingredients;
 
-public recipe(int recipeId, String recipeName, String recipeType, List<String> ingredients) { //updated
+    public Recipe(int recipeId, String recipeName, String recipeType, List<String> ingredients) { // updated
         this.recipeId = recipeId;
         this.recipeName = recipeName;
-    
-        this.recipeType = recipeType; // Initialize recipeType if needed
+        this.recipeType = recipeType;
         this.ingredients = ingredients;
     }
 
