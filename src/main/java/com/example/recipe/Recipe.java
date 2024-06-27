@@ -38,9 +38,9 @@ public class Recipe {
         return recipeType;
     }
 
-    public void setRecipeType(String recipeType) {
+   public void setRecipeDetails(String recipeType) {
         this.recipeType = recipeType;
-    }
+    }﻿﻿
 
     public List<String> getIngredients() {
         return ingredients;
